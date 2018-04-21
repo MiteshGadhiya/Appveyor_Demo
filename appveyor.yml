@@ -3,11 +3,27 @@ image: Visual Studio 2013
 before_build:
 - cmd: nuget restore
 build:
+  publish_wap: true
   verbosity: minimal
+artifacts:
+- path: '\appveyor_Demo\'
+  name: appveyor_Demo
+  type: WebDeployPackage
+deploy:
+- provider: FTP
+  host: technobrains.net
+  protocol: ftp
+  username: cicd
+  password:
+    secure: 4OrFO9G/Bd7WGKai5sLZDQ==
+  on:
+    branch: master
 notifications:
 - provider: Email
   to:
   - m.thakkars@gmail.com
+  subject: Build Message
+  message: Build Completed
   on_build_success: true
   on_build_failure: true
   on_build_status_changed: true
