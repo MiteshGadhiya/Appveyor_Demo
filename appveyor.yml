@@ -5,8 +5,8 @@ before_build:
 build:
   verbosity: minimal
 artifacts:
-- path: '\appveyor_Demo\'
-  name: appveyor_Demo
+- path: '\cicd\'
+  name: cicd
 deploy:
 - provider: FTP
   host: technobrains.net
