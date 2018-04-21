@@ -3,12 +3,10 @@ image: Visual Studio 2013
 before_build:
 - cmd: nuget restore
 build:
-  publish_wap: true
   verbosity: minimal
 artifacts:
 - path: '\appveyor_Demo\'
   name: appveyor_Demo
-  type: WebDeployPackage
 deploy:
 - provider: FTP
   host: technobrains.net
